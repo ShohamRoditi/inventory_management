@@ -1,0 +1,14 @@
+.addContainer {
+    display: flex;
+    /* background-color: #BBD8DC; */
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.addContainer:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+    height: 3em;
+    border-radius: 4px
+  }

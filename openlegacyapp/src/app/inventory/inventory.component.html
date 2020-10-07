@@ -1,0 +1,56 @@
+<h2>All Available Items</h2>
+<ul class="inventory">
+    <li *ngFor="let item of inventoryService.allItems"
+        [class.selected]="item === selectedItem"
+        (click)="onSelect(item)"
+        >
+        <span class="badge">{{item.name}}</span> 
+        <div style="display: flex; flex-direction: column;">
+          <div>
+            <button (click)="addToInventory(item)">add Item To Inventory</button>
+            <button (click)="deleteFromAllItems(item._id)">delete Item</button>
+          </div>
+          <div class="updateContainer">
+            <label>Item name:
+              <input #itemName />
+            </label>
+            <label>Item description:
+              <input #itemDescription />
+            </label>
+            <label>Item count:
+              <input #itemCount />
+            </label>
+            <button class="updateItem" (click)="save(item._id, itemName.value, itemDescription.value, itemCount.value)">update item</button>
+          </div>
+        <div class=depoOrWidthdrawContainer>
+          <label>Item amount:
+            <input #itemAmount />
+          </label>
+          <button class="button" (click)='deposit(item._id, itemAmount.value)'>+</button>
+          <button class="button" (click)='widthdraw(item._id, itemAmount.value)'>-</button>
+        </div>
+      </div>
+    </li>
+</ul>
+
+<div style="margin-top: 10em;" *ngIf="selectedItem">
+  <h4>{{selectedItem.name | uppercase}} Details</h4>
+  <div style="display: flex;flex-direction: column;">
+      <span>id: {{selectedItem._id}} </span>
+      <span>description: {{selectedItem.description}}</span>
+      <span>count: {{selectedItem.count}}</span>
+  </div>
+</div>
+
+
+<h2>Items In Your Inventory</h2>
+  <ul class="inventory">
+    <li *ngFor="let item of inventoryService.inventory"
+        [class.selected]="item === selectedItem"
+        (click)="onSelect(item)"
+        >
+        <span class="badge">{{item.name}}</span> 
+        <button class="delete" title="delete item"
+      (click)="delete(item._id)">x</button>
+    </li>
+</ul> 

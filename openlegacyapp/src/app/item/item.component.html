@@ -1,0 +1,14 @@
+<div class="addContainer">
+  <label>Item name:
+    <input #itemName />
+  </label>
+  <label>Item description:
+    <input #itemDescription />
+  </label>
+  <label>Item count:
+    <input #itemCount />
+  </label>
+  <button (click)="addItem(itemName.value, itemDescription.value, itemCount.value)">
+    Add Item
+  </button>
+</div>

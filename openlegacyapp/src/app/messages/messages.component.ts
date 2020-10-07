@@ -1,0 +1,21 @@
+import { Item } from './../item/item';
+import { MessageService } from './messages.service';
+import { Component, OnInit } from '@angular/core';
+
+
+@Component({
+  selector: 'app-messages',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css']
+})
+export class MessagesComponent implements OnInit {
+
+  constructor(public messageService: MessageService) {}
+
+  inventory: Item[]
+
+
+  ngOnInit(): void {
+  }
+
+}
